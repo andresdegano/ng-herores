@@ -3,7 +3,6 @@ import { Hero } from '@shared/models/hero.model';
 
 @Pipe({ name: 'nameFilter' })
 export class NameFilterPipe implements PipeTransform {
-
   transform(value: Hero[] | null, name = ''): Hero[] {
     if (name === '' || !value) {
       return value || [];

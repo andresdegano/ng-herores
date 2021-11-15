@@ -34,13 +34,13 @@
 
 <mat-card class="m-8 px-8">
   <mat-card-content>
-      <div *ngIf="isLoading" class="full-width">
-        <mat-spinner class="m-auto"></mat-spinner>
-      </div>
-      <div *ngIf="!isLoading && error" class="full-width">
-        <h2>There was an error fetching the data</h2>
-      </div>
-    
+    <div *ngIf="isLoading" class="full-width">
+      <mat-spinner class="m-auto"></mat-spinner>
+    </div>
+    <div *ngIf="!isLoading && error" class="full-width">
+      <h2>There was an error fetching the data</h2>
+    </div>
+
     <app-heroes-list
       [hidden]="isLoading || error"
       [heroes]="heroes$ | async | nameFilter: form.value.name || []"

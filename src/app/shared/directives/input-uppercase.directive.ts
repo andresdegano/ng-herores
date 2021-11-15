@@ -5,11 +5,7 @@ import { NgControl } from '@angular/forms';
   selector: '[appInputUppercase]'
 })
 export class InputUppercaseDirective {
-
-  constructor(
-    private control: NgControl
-  ) { 
-  }
+  constructor(private control: NgControl) {}
 
   @HostListener('input', ['$event.target'])
   public onInput(input: HTMLInputElement): void {

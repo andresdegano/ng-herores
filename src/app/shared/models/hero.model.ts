@@ -1,9 +1,9 @@
 export interface HeroModel {
-    name: string,
-    superPower: string,
-    strength: number
+  name: string;
+  superPower: string;
+  strength: number;
 }
 
 export interface Hero extends HeroModel {
-    id: string,
+  id: string;
 }

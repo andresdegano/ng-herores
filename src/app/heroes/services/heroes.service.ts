@@ -8,11 +8,9 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class HeroesService {
-
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   getAllHeroes(): Observable<Hero[]> {
-    
     return this.http.get<Hero[]>(`${env.apiUrl}heroes`);
   }
 

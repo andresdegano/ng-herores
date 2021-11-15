@@ -62,16 +62,18 @@ describe('HeroesService', () => {
       it('should call post method', () => {
         heroesService.createHero(hero);
         expect(httpClientSpy.post).toHaveBeenCalledOnceWith(
-          `${env.apiUrl}heroes`, hero
+          `${env.apiUrl}heroes`,
+          hero
         );
       });
     });
 
     describe('Update Hero', () => {
       it('should call put method', () => {
-        heroesService.updateHero({... hero, id: '2'});
+        heroesService.updateHero({ ...hero, id: '2' });
         expect(httpClientSpy.put).toHaveBeenCalledOnceWith(
-          `${env.apiUrl}heroes/2`, {... hero, id: '2'}
+          `${env.apiUrl}heroes/2`,
+          { ...hero, id: '2' }
         );
       });
     });

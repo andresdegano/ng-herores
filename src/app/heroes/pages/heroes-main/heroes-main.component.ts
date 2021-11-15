@@ -46,7 +46,7 @@ export class HeroesMainComponent implements OnInit {
         this.error = true;
         return of([]);
       })
-  );
+    );
   }
 
   onRemove(hero: Hero) {

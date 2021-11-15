@@ -3,6 +3,10 @@
     <mat-card-title> {{ title }} </mat-card-title>
   </mat-card-header>
   <mat-card-content>
-    <app-hero-form [(hero)]="newHero" (onSave)="save()" (onCancel)="goHome()"></app-hero-form>
+    <app-hero-form
+      [(hero)]="newHero"
+      (onSave)="save()"
+      (onCancel)="goHome()"
+    ></app-hero-form>
   </mat-card-content>
 </mat-card>

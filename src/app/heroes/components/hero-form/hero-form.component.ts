@@ -51,19 +51,16 @@ export class HeroFormComponent implements OnInit, AfterContentInit {
   ngOnChanges(changes: SimpleChanges) {
     for (const propName in changes) {
       if (changes.hasOwnProperty(propName)) {
-        let change = changes[propName];
-        switch (propName) {
-          case 'hero': {
-            if (change.currentValue) {
-              this.form.setValue(
-                {
-                  name: change.currentValue.name,
-                  superPower: change.currentValue.superPower,
-                  strength: change.currentValue.strength
-                },
-                { onlySelf: false, emitEvent: false }
-              );
-            }
+        if (propName === 'hero') {
+          if (changes[propName].currentValue) {
+            this.form.setValue(
+              {
+                name: changes[propName].currentValue.name,
+                superPower: changes[propName].currentValue.superPower,
+                strength: changes[propName].currentValue.strength
+              },
+              { onlySelf: false, emitEvent: false }
+            );
           }
         }
       }
