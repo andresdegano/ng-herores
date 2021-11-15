@@ -1,0 +1,51 @@
+<mat-card class="mx-8 px-8">
+  <mat-card-content>
+    <div class="flex flex-wrap-reverse">
+      <div class="flex-1">
+        <h2>Search for your Hero!</h2>
+        <form [formGroup]="form">
+          <mat-form-field class="mr-4" appearance="fill">
+            <mat-label>Name</mat-label>
+            <input
+              matInput
+              type="text"
+              formControlName="name"
+              appInputUppercase
+            />
+            <button matSuffix mat-icon-button aria-label="searh">
+              <mat-icon>search</mat-icon>
+            </button>
+          </mat-form-field>
+        </form>
+      </div>
+      <div class="flex-4">
+        <button
+          routerLink="/hero/new"
+          mat-raised-button
+          class="mb-4"
+          color="primary"
+        >
+          Add new Hero
+        </button>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>
+
+<mat-card class="m-8 px-8">
+  <mat-card-content>
+      <div *ngIf="isLoading" class="full-width">
+        <mat-spinner class="m-auto"></mat-spinner>
+      </div>
+      <div *ngIf="!isLoading && error" class="full-width">
+        <h2>There was an error fetching the data</h2>
+      </div>
+    
+    <app-heroes-list
+      [hidden]="isLoading || error"
+      [heroes]="heroes$ | async | nameFilter: form.value.name || []"
+      (onEdit)="onEdit($event)"
+      (onRemove)="onRemove($event)"
+    ></app-heroes-list>
+  </mat-card-content>
+</mat-card>

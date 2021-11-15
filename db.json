@@ -1,0 +1,22 @@
+{
+  "heroes": [
+    {
+      "id": 1,
+      "name": "TICTAC",
+      "superPower": "Go back in time",
+      "strength": 4
+    },
+    {
+      "name": "RULEMAN",
+      "superPower": "Rolls on itself",
+      "strength": 400,
+      "id": 2
+    },
+    {
+      "name": "EL VENGADOR INFANTIL",
+      "superPower": "uses a beisbol bat",
+      "strength": 1,
+      "id": 3
+    }
+  ]
+}

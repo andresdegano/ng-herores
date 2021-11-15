@@ -1,0 +1,32 @@
+<table mat-table [dataSource]="dataSource || []">
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef>Name</th>
+    <td mat-cell *matCellDef="let hero">{{ hero.name }}</td>
+  </ng-container>
+  <ng-container matColumnDef="superPower">
+    <th mat-header-cell *matHeaderCellDef>Super Power</th>
+    <td mat-cell *matCellDef="let hero">{{ hero.superPower }}</td>
+  </ng-container>
+  <ng-container matColumnDef="strength">
+    <th mat-header-cell *matHeaderCellDef>Strength</th>
+    <td mat-cell *matCellDef="let hero">{{ hero.strength }}</td>
+  </ng-container>
+  <ng-container matColumnDef="menu">
+    <th mat-header-cell *matHeaderCellDef></th>
+    <td mat-cell *matCellDef="let hero">
+      <button (click)="onEdit.emit(hero)" class="mr-4" mat-mini-fab color="primary" aria-label="edit">
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button (click)="onRemove.emit(hero)" mat-mini-fab color="warn" aria-label="delete">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </td>
+  </ng-container>
+  <tr mat-header-row *matHeaderRowDef="['name', 'superPower', 'strength', 'menu']"></tr>
+  <tr
+    mat-row
+    *matRowDef="let myRowData; columns: ['name', 'superPower', 'strength', 'menu']"
+  ></tr>
+</table>
+<mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons>
+</mat-paginator>
